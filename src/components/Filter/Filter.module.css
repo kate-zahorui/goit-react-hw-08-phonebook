@@ -1,0 +1,11 @@
+.filter {
+  margin-bottom: 20px;
+}
+
+.filter__text {
+  margin-bottom: 10px;
+}
+
+.filter__input {
+  padding: 5px 10px;
+}

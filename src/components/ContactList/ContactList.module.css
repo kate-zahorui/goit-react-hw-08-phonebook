@@ -1,0 +1,26 @@
+.contact {
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+  padding: 8px;
+
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.contact:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.name {
+  margin-right: 10px;
+}
+
+.number {
+  flex-grow: 1;
+}
+
+.button {
+  margin-right: 0;
+  margin-left: auto;
+  padding: 5px 10px;
+}

@@ -1,0 +1,18 @@
+.app {
+  margin: 0 auto;
+  max-width: 1200px;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(
+    289.5deg,
+    rgb(229, 233, 177) 11.2%,
+    rgb(223, 205, 187) 100.2%
+  );
+}
+
+.app__title {
+  margin-bottom: 20px;
+}
+.contacts__title {
+  margin-bottom: 20px;
+}

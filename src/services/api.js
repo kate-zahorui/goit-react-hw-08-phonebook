@@ -1,40 +1,63 @@
-const BASE_URL = 'https://6317035682797be77ff07ba6.mockapi.io/contacts';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+
+export const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
 
 export const UserAPI = {
-  fetchContacts: async () => {
-    const response = await fetch(`${BASE_URL}`);
+  userRegisterRequest: async formData => {
+    const response = await axios.post(`/users/signup`, formData);
+    // console.log(response);
+    token.set(response.data.token);
 
-    if (!response.ok) {
-      return new Error(response.status);
-    }
-    const contacts = await response.json();
-    return contacts;
+    return response.data;
+  },
+
+  userLogInRequest: async formData => {
+    const response = await axios.post(`/users/login`, formData);
+    // console.log(response);
+    token.set(response.data.token);
+
+    return response.data;
+  },
+
+  userLogOutRequest: async () => {
+    const response = await axios.post(`/users/logout`);
+    // console.log(response);
+    token.unset();
+
+    return response;
+  },
+
+  fetchCurrentUser: async persistedToken => {
+    token.set(persistedToken);
+
+    const response = await axios.get(`/users/current`);
+    // console.log(response);
+
+    return response.data;
+  },
+
+  fetchContacts: async () => {
+    const response = await axios.get(`/contacts`);
+
+    return response.data;
   },
 
   addNewContact: async contactToAdd => {
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(contactToAdd),
-      headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-    };
-    const response = await fetch(`${BASE_URL}`, options);
+    const response = await axios.post(`/contacts`, contactToAdd);
 
-    if (!response.ok) {
-      return new Error(response.status);
-    }
-    const contact = await response.json();
-    return contact;
+    return response.data;
   },
 
   deleteContact: async id => {
-    const response = await fetch(`${BASE_URL}/${id}`, {
-      method: 'DELETE',
-    });
-
-    if (!response.ok) {
-      return new Error(response.status);
-    }
+    await axios.delete(`/contacts/${id}`);
   },
 };

@@ -1,41 +1,10 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { UserAPI } from 'services/api';
+import { createSlice } from '@reduxjs/toolkit';
 
-export const getContacts = createAsyncThunk(
-  'contacts/getContacts',
-  async (_, { rejectWithValue }) => {
-    try {
-      const contacts = await UserAPI.fetchContacts();
-      return contacts;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
-  }
-);
-
-export const addNewContact = createAsyncThunk(
-  'contacts/addContact',
-  async (newContact, { rejectWithValue }) => {
-    try {
-      const contacts = await UserAPI.addNewContact(newContact);
-      return contacts;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
-  }
-);
-
-export const deleteContact = createAsyncThunk(
-  'contacts/deleteContact',
-  async (contactId, { rejectWithValue }) => {
-    try {
-      await UserAPI.deleteContact(contactId);
-      return contactId;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
-  }
-);
+import {
+  getContacts,
+  addNewContact,
+  deleteContact,
+} from './contactsOperations';
 
 const initialState = {
   items: [],
@@ -53,7 +22,8 @@ export const contactsSlice = createSlice({
     },
   },
   extraReducers: {
-    // getContacts
+    // ------------ getContacts ------------
+
     [getContacts.pending]: (state, _) => {
       state.isLoading = true;
       state.error = '';
@@ -69,7 +39,8 @@ export const contactsSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload.message;
     },
-    // addNewContact
+    // ------------ addNewContact ------------
+
     [addNewContact.pending]: (state, _) => {
       state.isLoading = true;
       state.error = '';
@@ -82,7 +53,8 @@ export const contactsSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload.message;
     },
-    // deleteContact
+    // ------------ deleteContact ------------
+
     [deleteContact.pending]: (state, _) => {
       state.isLoading = true;
       state.error = '';

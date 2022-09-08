@@ -31,7 +31,6 @@ const App = () => {
           <Route path="/login" element={<LogIn />} />
           <Route path="/contacts" element={<ContactsWithRedirect />} />
           <Route path="/usermenu" element={<UserMenuWithRedirect />} />
-          {/* <Route path="*" element={<SignUp />} /> */}
         </Routes>
       </div>
     </div>

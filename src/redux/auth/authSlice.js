@@ -11,6 +11,7 @@ const initialState = {
   user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
+  error: '',
 };
 
 export const authSlice = createSlice({
@@ -28,10 +29,9 @@ export const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
-    // [authOperations.userRegister.rejected]: (state, action) => {
-    //   state.isLoading = false;
-    //   state.error = action.payload.message;
-    // },
+    [userRegister.rejected]: (state, action) => {
+      state.error = action.payload.message;
+    },
 
     // ------------ userLogIn ------------
     [userLogIn.fulfilled]: (state, action) => {
@@ -39,12 +39,19 @@ export const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+    [userLogIn.rejected]: (state, action) => {
+      state.error = action.payload.message;
+    },
     // ------------ userLogOut ------------
     [userLogOut.fulfilled]: state => {
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
     },
+    [userLogOut.rejected]: (state, action) => {
+      state.error = action.payload.message;
+    },
+
     // ------------ fetchCurrentUser ------------
     [fetchCurrentUser.fulfilled]: (state, action) => {
       state.user = action.payload;

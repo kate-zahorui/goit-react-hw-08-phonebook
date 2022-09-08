@@ -16,7 +16,7 @@ const SignUp = () => {
     email: '',
     password: '',
   });
-  const { isLoggedIn } = useSelector(state => state.auth);
+  const { isLoggedIn, error } = useSelector(state => state.auth);
 
   const signupNameId = nanoid();
   const signupEmailId = nanoid();
@@ -81,6 +81,7 @@ const SignUp = () => {
           Sign Up
         </Button>
       </form>
+      {error && <p>{error}</p>}
     </div>
   );
 };

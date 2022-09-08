@@ -14,25 +14,22 @@ export const token = {
 export const UserAPI = {
   userRegisterRequest: async formData => {
     const response = await axios.post(`/users/signup`, formData);
-    // console.log(response);
-    token.set(response.data.token);
 
+    token.set(response.data.token);
     return response.data;
   },
 
   userLogInRequest: async formData => {
     const response = await axios.post(`/users/login`, formData);
-    // console.log(response);
-    token.set(response.data.token);
 
+    token.set(response.data.token);
     return response.data;
   },
 
   userLogOutRequest: async () => {
     const response = await axios.post(`/users/logout`);
-    // console.log(response);
-    token.unset();
 
+    token.unset();
     return response;
   },
 
@@ -40,7 +37,6 @@ export const UserAPI = {
     token.set(persistedToken);
 
     const response = await axios.get(`/users/current`);
-    // console.log(response);
 
     return response.data;
   },

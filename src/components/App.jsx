@@ -8,6 +8,7 @@ import { ContactsWithRedirect } from 'pages/Contacts/Contacts';
 import { UserMenuWithRedirect } from 'pages/UserMenu/UserMenu';
 import { LogIn } from 'pages/LogIn/LogIn';
 import { SignUp } from 'pages/SignUp/SignUp';
+import { NotFound } from './NotFound';
 
 import s from './App.module.css';
 
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/login" element={<LogIn />} />
           <Route path="/contacts" element={<ContactsWithRedirect />} />
           <Route path="/usermenu" element={<UserMenuWithRedirect />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </div>

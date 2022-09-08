@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import Button from '@mui/material/Button';
+
 import s from './ContactList.module.css';
 
 const ContactItem = ({ id, name, number, onDeleteBtnClick }) => {
@@ -6,13 +8,15 @@ const ContactItem = ({ id, name, number, onDeleteBtnClick }) => {
     <li className={s.contact}>
       <span className={s.name}>{name}:</span>
       <span className={s.number}>{number}</span>
-      <button
+
+      <Button
         type="button"
         onClick={() => onDeleteBtnClick(id)}
         className={s.button}
+        variant="outlined"
       >
         Delete
-      </button>
+      </Button>
     </li>
   );
 };

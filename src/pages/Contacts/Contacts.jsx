@@ -60,10 +60,10 @@ const Contacts = () => {
   const noContacts = contactsToRender.length === 0 && !error && !isLoading;
 
   return (
-    <div className={s.container}>
+    <div>
       <ContactForm addContact={addContact} />
 
-      <h2 className={s.contacts__title}>Contacts</h2>
+      <h2 className={s.title}>Contacts</h2>
       <Filter />
       {isLoading && <p>Loading...</p>}
       {error && <p>Error. {error.message}</p>}

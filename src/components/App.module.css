@@ -1,18 +1,16 @@
 .app {
-  margin: 0 auto;
-  max-width: 1200px;
   min-height: 100vh;
-  padding: 20px;
-  background: linear-gradient(
-    289.5deg,
-    rgb(229, 233, 177) 11.2%,
-    rgb(223, 205, 187) 100.2%
-  );
+  background: linear-gradient(to top, #fbf2d5 70%, white 100%);
 }
 
-.app__title {
-  margin-bottom: 20px;
+.title {
+  margin-bottom: 30px;
+  text-align: center;
+  color: #7fa99b;
 }
-.contacts__title {
-  margin-bottom: 20px;
+
+.container {
+  margin: 0 auto;
+  width: 800px;
+  padding: 70px 20px 40px 20px;
 }

@@ -14,9 +14,9 @@ const Filter = () => {
 
   return (
     <div className={s.filter}>
-      <p className={s.filter__text}>Find contacts by name</p>
+      <p className={s.text}>Find contacts by name</p>
       <input
-        className={s.filter__input}
+        className={s.input}
         type="text"
         name="filter"
         value={filter}

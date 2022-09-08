@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #394a51;
 }
 
 code {
@@ -23,4 +24,9 @@ h1,
 h2 {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+a,
+button {
+  color: inherit;
 }

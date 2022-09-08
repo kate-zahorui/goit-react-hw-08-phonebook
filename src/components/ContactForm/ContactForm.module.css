@@ -5,7 +5,7 @@
   margin-bottom: 20px;
   padding: 20px;
 
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .label {
@@ -15,8 +15,7 @@
 .input {
   margin-bottom: 15px;
   padding: 5px 10px;
-}
-
-.button {
-  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #394a51;
+  outline: none;
 }

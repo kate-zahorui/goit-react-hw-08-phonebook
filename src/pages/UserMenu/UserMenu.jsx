@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
+
 import { userLogOut } from '../../redux/auth/authOperations';
 import WithAuthRedirect from '../../hoc/WithAuthRedirect';
 
@@ -24,10 +26,11 @@ const UserMenu = () => {
 
   return (
     <div>
-      <p>Email:{user.email}</p>
-      <button type="button" onClick={handleBtnClick}>
+      <p className={s.text}>Email: {user.email}</p>
+
+      <Button type="button" variant="contained" onClick={handleBtnClick}>
         Log Out
-      </button>
+      </Button>
     </div>
   );
 };

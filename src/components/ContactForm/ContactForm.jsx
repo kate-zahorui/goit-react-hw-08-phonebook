@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import Button from '@mui/material/Button';
 import { nanoid } from 'nanoid';
 
 import s from './ContactForm.module.css';
@@ -58,9 +59,9 @@ const ContactForm = ({ addContact }) => {
         value={number}
         onChange={handleInputChange}
       />
-      <button type="submit" className={s.button}>
+      <Button type="submit" variant="contained">
         Add contact
-      </button>
+      </Button>
     </form>
   );
 };
